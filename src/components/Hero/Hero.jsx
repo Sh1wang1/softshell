@@ -37,7 +37,7 @@ export const Hero = () => {
               <div className="bg-gradient-to-r from-blue-100 to-teal-100 dark:from-blue-900 dark:to-teal-900 rounded-lg w-72 h-72 md:w-96 md:h-96 relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
-                    src="oftshell.jpg"
+                    src="oftshell.png"
                     alt="SoftSell company logo"
                     loading="lazy"
                     className="object-cover rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out w-64 h-64"
