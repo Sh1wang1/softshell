@@ -1,79 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import { FaDollarSign, FaClock, FaUsers, FaShield } from 'react-icons/fa'; 
+import React from 'react';
+import { FaDollarSign, FaClock, FaUsers, FaShieldAlt } from "react-icons/fa";
 
-export const Choose = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    return savedMode === 'true' ? true : false;
-  });
+const features = [
+  {
+    icon: <FaDollarSign size={28} />,
+    title: 'Best Market Rates',
+    description: 'We offer the highest payouts in the industry, guaranteed up to 70% of retail value.',
+    gradient: 'from-blue-400 via-blue-500 to-blue-600',
+    iconBg: 'bg-white text-blue-600',
+  },
+  {
+    icon: <FaClock size={28} />,
+    title: 'Quick Processing',
+    description: 'From valuation to payment in under 48 hours, the fastest turnaround in the business.',
+    gradient: 'from-green-400 via-green-500 to-green-600',
+    iconBg: 'bg-white text-green-600',
+  },
+  {
+    icon: <FaUsers size={28} />,
+    title: 'Global Network',
+    description: 'Access to a vast network of verified buyers across all industries and regions.',
+    gradient: 'from-purple-400 via-purple-500 to-purple-600',
+    iconBg: 'bg-white text-purple-600',
+  },
+  {
+    icon: <FaShieldAlt size={28} />,
+    title: '100% Secure',
+    description: 'Bank-level encryption and secure transfer protocols protect your sensitive data.',
+    gradient: 'from-orange-400 via-orange-500 to-orange-600',
+    iconBg: 'bg-white text-orange-600',
+  },
+];
 
-  useEffect(() => {
-    localStorage.setItem('darkMode', darkMode);
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
-
+export const Choose = ({ darkMode }) => {
   return (
-    <section id="why-choose-us" className="py-20">
+    <section
+      id="why-choose-us"
+      className={`py-20 transition-colors duration-300 ${
+        darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose SoftSell</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            With years of experience in the software resale market, we offer unparalleled value and service.
-          </p>
+          <p className="text-xl text-indigo-600 dark:text-indigo-300 font-semibold max-w-2xl mx-auto">
+  With years of experience in the software resale market, we offer unparalleled value and service.
+</p>
+
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-blue-50'} hover:shadow-lg transition-shadow`}>
-            <div className="text-blue-600 mb-4">
-              <FaDollarSign size={30} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((item, index) => (
+            <div
+              key={index}
+              className={`
+                p-6 rounded-2xl shadow-lg 
+                bg-gradient-to-br ${item.gradient} 
+                text-white transform hover:scale-105 
+                hover:shadow-2xl transition-all duration-300
+              `}
+            >
+              <div
+                className={`mb-4 w-14 h-14 flex items-center justify-center rounded-full shadow-md ${item.iconBg}`}
+              >
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+              <p className="text-sm opacity-90">{item.description}</p>
             </div>
-            <h3 className="text-xl font-bold mb-2">Best Market Rates</h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              We offer the highest payouts in the industry, guaranteed up to 70% of retail value.
-            </p>
-          </div>
-
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-green-50'} hover:shadow-lg transition-shadow`}>
-            <div className="text-green-600 mb-4">
-              <FaClock size={30} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Quick Processing</h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              From valuation to payment in under 48 hours, the fastest turnaround in the business.
-            </p>
-          </div>
-
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-purple-50'} hover:shadow-lg transition-shadow`}>
-            <div className="text-purple-600 mb-4">
-              <FaUsers size={30} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Global Network</h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Access to a vast network of verified buyers across all industries and regions.
-            </p>
-          </div>
-
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-orange-50'} hover:shadow-lg transition-shadow`}>
-            <div className="text-orange-600 mb-4">
-              <FaShield size={30} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">100% Secure</h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Bank-level encryption and secure transfer protocols protect your sensitive data.
-            </p>
-          </div>
+          ))}
         </div>
-
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-all"
-        >
-          {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        </button>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, DollarSign } from 'lucide-react';
 
-export const Hero = () => {
+export const Hero = ({ darkMode }) => {
     return (
         <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="container mx-auto px-4">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Work = () => {
+export const Work = ({ darkMode }) => {
   return (
     <section id="work" className="py-20 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto px-4">
