@@ -36,33 +36,27 @@ export const Choose = ({ darkMode }) => {
   return (
     <section
       id="why-choose-us"
-      className={`py-20 transition-colors duration-300 ${
+      className={`scroll-mt-15 py-20 transition-colors duration-300 ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose SoftSell</h2>
-          <p className="text-xl text-indigo-600 dark:text-indigo-300 font-semibold max-w-2xl mx-auto">
-  With years of experience in the software resale market, we offer unparalleled value and service.
-</p>
-
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-teal-800 to-indigo-400 dark:from-teal-400 dark:to-indigo-500">
+            Why Choose SoftSell
+          </h2>
+          <p className="text-xl font-semibold max-w-2xl mx-auto text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-teal-800 dark:from-indigo-300 dark:to-teal-400">
+            With years of experience in the software resale market, we offer unparalleled value and service.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((item, index) => (
             <div
               key={index}
-              className={`
-                p-6 rounded-2xl shadow-lg 
-                bg-gradient-to-br ${item.gradient} 
-                text-white transform hover:scale-105 
-                hover:shadow-2xl transition-all duration-300
-              `}
+              className={`p-6 rounded-2xl shadow-lg bg-gradient-to-br ${item.gradient} text-white transform hover:scale-105 hover:shadow-2xl transition-all duration-300`}
             >
-              <div
-                className={`mb-4 w-14 h-14 flex items-center justify-center rounded-full shadow-md ${item.iconBg}`}
-              >
+              <div className={`mb-4 w-14 h-14 flex items-center justify-center rounded-full shadow-md ${item.iconBg}`}>
                 {item.icon}
               </div>
               <h3 className="text-xl font-bold mb-2">{item.title}</h3>
